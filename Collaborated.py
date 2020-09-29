@@ -273,3 +273,46 @@ print(len(nums))
 
 #The insert method is similar to append, except that it allows you to insert a
 #new item at any position in the list, as opposed to just at the end.
+
+#Module quize
+*What is the output of this code?
+
+list = [1, 1, 2, 3, 5, 8, 13]
+print(list[list[4]])
+
+Ans: 8
+
+What does this code do?
+
+for i in range(10):
+  if not i % 2 == 0:
+    print(i+1)
+
+Ans: Print all the even numbers between 2 and 10
+
+*How many lines will this code print?
+
+while False:
+  print("Looping...")
+
+  Ans: 0
+
+*Fill in the blanks to print the first element of the list, if it contains even number of elements.
+
+list = [1, 2, 3, 4]
+if len (list) % 2==0:
+  print(list[0])
+
+* What does this code output?
+
+letters = ['x', 'y', 'z']
+letters.insert(1, 'w')
+print(letters[2])
+
+Ans: y
+
+*Fill in the blanks to iterate over the list using a for loop and print its values.
+
+list = [1, 2, 3]
+for var in list:
+  print(var)
