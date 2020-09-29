@@ -273,3 +273,105 @@ print(len(nums))
 
 #The insert method is similar to append, except that it allows you to insert a
 #new item at any position in the list, as opposed to just at the end.
+
+#Module quize
+*What is the output of this code?
+
+list = [1, 1, 2, 3, 5, 8, 13]
+print(list[list[4]])
+
+Ans: 8
+
+What does this code do?
+
+for i in range(10):
+  if not i % 2 == 0:
+    print(i+1)
+
+Ans: Print all the even numbers between 2 and 10
+
+*How many lines will this code print?
+
+while False:
+  print("Looping...")
+
+  Ans: 0
+
+*Fill in the blanks to print the first element of the list, if it contains even number of elements.
+
+list = [1, 2, 3, 4]
+if len (list) % 2==0:
+  print(list[0])
+
+* What does this code output?
+
+letters = ['x', 'y', 'z']
+letters.insert(1, 'w')
+print(letters[2])
+
+Ans: y
+
+*Fill in the blanks to iterate over the list using a for loop and print its values.
+
+list = [1, 2, 3]
+for var in list:
+  print(var)
+  -----------------------------
+
+#Function and module
+Code reuse is a very important part of programming in any language.
+You've already used functions in previous lessons.
+Any statement that consists of a word followed by information in parentheses is a function call.
+
+print("Hello world!")
+range(2, 20)
+str(12)
+range(10, 20, 3)
+
+The words in front of the parentheses are function names, and the comma-separated values
+inside the parentheses are function arguments.
+
+How many arguments are in this function call?
+range(0, 100, 5)
+Ans:3
+------------------------------------
+In addition to using pre-defined functions, you can create your own functions by using the def statement.
+Here is an example of a function named my_func. It takes no arguments, and prints "spam" three times.
+It is defined, and then called. The statements in the function are executed only when the function is called.
+
+def my_func():
+   print("spam")
+   print("spam")
+   print("spam")
+
+my_func()
+
+#You must define functions before they are called,
+#in the same way that you must assign variables before using them.
+#Most functions take arguments.
+
+def print_with_exclamation(word):
+   print(word + "!")
+
+print_with_exclamation("spam")
+print_with_exclamation("eggs")
+print_with_exclamation("python")
+
+You can also define functions with more than one argument; separate them with commas
+
+def print_sum_twice(x, y):
+   print(x + y)
+   print(x + y)
+
+print_sum_twice(5, 8)
+
+''''Function arguments can be used as variables inside the function definition.
+However, they cannot be referenced outside of the function's definition.
+This also applies to other variables created inside a function.''''
+
+def function(variable):
+   variable += 1
+   print(variable)
+
+function(7)
+print(variable)
