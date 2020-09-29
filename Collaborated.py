@@ -316,3 +316,62 @@ Ans: y
 list = [1, 2, 3]
 for var in list:
   print(var)
+  -----------------------------
+
+#Function and module
+Code reuse is a very important part of programming in any language.
+You've already used functions in previous lessons.
+Any statement that consists of a word followed by information in parentheses is a function call.
+
+print("Hello world!")
+range(2, 20)
+str(12)
+range(10, 20, 3)
+
+The words in front of the parentheses are function names, and the comma-separated values
+inside the parentheses are function arguments.
+
+How many arguments are in this function call?
+range(0, 100, 5)
+Ans:3
+------------------------------------
+In addition to using pre-defined functions, you can create your own functions by using the def statement.
+Here is an example of a function named my_func. It takes no arguments, and prints "spam" three times.
+It is defined, and then called. The statements in the function are executed only when the function is called.
+
+def my_func():
+   print("spam")
+   print("spam")
+   print("spam")
+
+my_func()
+
+#You must define functions before they are called,
+#in the same way that you must assign variables before using them.
+#Most functions take arguments.
+
+def print_with_exclamation(word):
+   print(word + "!")
+
+print_with_exclamation("spam")
+print_with_exclamation("eggs")
+print_with_exclamation("python")
+
+You can also define functions with more than one argument; separate them with commas
+
+def print_sum_twice(x, y):
+   print(x + y)
+   print(x + y)
+
+print_sum_twice(5, 8)
+
+''''Function arguments can be used as variables inside the function definition.
+However, they cannot be referenced outside of the function's definition.
+This also applies to other variables created inside a function.''''
+
+def function(variable):
+   variable += 1
+   print(variable)
+
+function(7)
+print(variable)

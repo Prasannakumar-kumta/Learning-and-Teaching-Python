@@ -1,2 +1,2 @@
-x=(2==3)
-print(x)
+print ("Hi, I'm your friend ")
+print("What is your name?")
