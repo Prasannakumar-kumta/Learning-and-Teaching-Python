@@ -1,7 +1,8 @@
-def sum(x,y):
-    print(x+y)
 
-sum(5,8)
-sum(5,4)
-sum(5,834)
-sum(5,82)
+def func(x):
+  res = 0
+  for i in range(x):
+     res += i
+  return res
+
+print(func(4))
