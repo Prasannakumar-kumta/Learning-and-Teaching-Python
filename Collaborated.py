@@ -375,3 +375,188 @@ def function(variable):
 
 function(7)
 print(variable)
+
+''''Returning from Functions
+Certain functions, such as int or str, return a value that can be used later.
+To do this for your defined functions, you can use the return statement.'''
+
+For example:
+def max(x, y):
+    if x >=y:
+        return x
+    else:
+        return y
+
+print(max(4, 7)
+z = max(8, 5)
+print(z)
+
+'''''Fill in the blanks to define a function that compares
+the lengths of its arguments and returns the shortest one.'''
+
+def shortest_string(x, y):
+  if len(x) <= len(y):
+    return x
+  else:
+      return y
+
+''''Returning from Functions:
+Once you return a value from a function, it immediately stops being executed.
+Any code after the return statement will never happen.''''
+
+For example:
+def add_numbers(x, y):
+  total = x + y
+  return total
+  print("This won't be printed")
+
+print(add_numbers(4, 5))
+
+''''Comments: Comments are annotations to code used to make it easier to understand.
+They don't affect how code is run.
+In Python, a comment is created by inserting an octothorpe ''''
+(otherwise known as a number sign or hash symbol: #). All text after it on that line is ignored.
+For example:
+x = 365
+y = 7
+# this is a comment
+print(x % y) # find the remainder
+# print (x // y)
+# another comment
+
+''''Docstrings:Docstrings (documentation strings) serve a similar purpose to comments,
+as they are designed to explain code. However, they are more specific and have a different syntax.
+They are created by putting a multiline string containing an explanation of the function
+below the function's first line.'''
+
+def shout(word):
+  """
+  Print a word with an
+  exclamation mark following it.
+  """
+  print(word + "!")
+
+shout("spam")
+
+''''Functions: Although they are created differently from normal variables,
+functions are just like any other kind of value.
+They can be assigned and reassigned to variables, and later referenced by those names.'''
+
+def multiply(x, y):
+   return x * y
+a = 4
+b = 7
+operation = multiply
+print(operation(a, b))
+
+''''Functions:Functions can also be used as arguments of other functions.'''
+
+def add(x, y):
+  return x + y
+
+def do_twice(func, x, y):
+  return func(func(x, y), func(x, y))
+
+a = 5
+b = 10
+
+print(do_twice(add, a, b))
+
+""Fill in the blanks to pass the function "square" as an argument to the function "test":""
+
+def square(x):
+  return x * x
+def test(func, x):
+ print(func(x))
+test(square, 42)
+
+""""Modules:Modules are pieces of code that other people have written to fulfill
+common tasks, such as generating random numbers, performing mathematical operations, etc."""
+
+"""The basic way to use a module is to add import module_name at the top of your code,
+and then using module_name.var to access functions and values with the name var in the module."""
+
+"""For example, the following example uses the random module to generate random numbers:"""
+
+import random
+
+for i in range(5):
+   value = random.randint(1, 6)
+   print(value)
+
+#The code uses the randint function defined in the random module to
+#print 5 random numbers in the range 1 to 6.
+
+""""Modules:There is another kind of import that can be used if you only need certain
+functions from a module."""
+""""These take the form from module_name import var, and then var can be used as if it were
+defined normally in your code."""
+"""For example, to import only the pi constant from the math module:"""
+
+from math import pi
+
+print(pi)
+
+""""Use a comma separated list to import multiple objects. For example:"""
+
+from math import pi, sqrt
+
+"""""* imports all objects from a module. For example: from math import *
+This is generally discouraged, as it confuses variables in your code with variables in the external module."""
+
+""""Modules:You can import a module or object under a different name using the as keyword.
+This is mainly used when a module or object has a long or confusing name.
+For example:"""
+
+from math import sqrt as square_root
+print(square_root(100))
+
+Modules
+
+""""There are three main types of modules in Python, those you write yourself,
+those you install from external sources, and those that are preinstalled with Python.
+The last type is called the standard library, and contains many useful modules.
+Some of the standard library's useful modules include string, re, datetime, math,
+random, os, multiprocessing, subprocess, socket, email, json, doctest, unittest, pdb, argparse and sys."""
+
+"""Tasks that can be done by the standard library include string parsing, data serialization,
+testing, debugging and manipulating dates, emails, command line arguments, and much more!
+Python's extensive standard library is one of its main strengths as a language."""
+
+"""The Standard Library
+Some of the modules in the standard library are written in Python, and some are written in C.
+Most are available on all platforms, but some are Windows or Unix specific.
+We won't cover all of the modules in the standard library; there are simply too many.
+The complete documentation for the standard library is available online at www.python.org."""
+
+"""Modules
+
+Many third-party Python modules are stored on the Python Package Index (PyPI).
+The best way to install these is using a program called pip. This comes installed by
+ default with modern distributions of Python. If you don't have it, it is easy to install online.
+ Once you have it, installing libraries from PyPI is easy. Look up the name of the library you want to install,
+ go to the command line (for Windows it will be the Command Prompt), and enter pip install library_name.
+ Once you've done this, import the library and use it in your code.
+
+Using pip is the standard way of installing libraries on most operating systems,
+but some libraries have prebuilt binaries for Windows. These are normal executable files 
+that let you install libraries with a GUI the same way you would install other programs.
+It's important to enter pip commands at the command line, not the Python interpreter"""
+
+"""What is the highest number output by this code?"""
+
+def print_nums(x):
+  for i in range(x):
+    print(i)
+    return
+print_nums(10)
+
+""" What is the output of this code? """
+
+def func(x):
+  res = 0
+  for i in range(x):
+     res += i
+  return res
+
+print(func(4))
