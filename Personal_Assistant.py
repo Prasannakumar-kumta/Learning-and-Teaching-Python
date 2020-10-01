@@ -1,2 +1,1 @@
-print ("Hi, I'm your friend ")
-print("What is your name?")
+This has been written to a file
