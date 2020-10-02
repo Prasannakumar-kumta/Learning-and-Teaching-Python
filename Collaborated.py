@@ -539,7 +539,7 @@ The best way to install these is using a program called pip. This comes installe
  Once you've done this, import the library and use it in your code.
 
 Using pip is the standard way of installing libraries on most operating systems,
-but some libraries have prebuilt binaries for Windows. These are normal executable files 
+but some libraries have prebuilt binaries for Windows. These are normal executable files
 that let you install libraries with a GUI the same way you would install other programs.
 It's important to enter pip commands at the command line, not the Python interpreter"""
 
@@ -551,7 +551,7 @@ def print_nums(x):
     return
 print_nums(10)
 
-""" What is the output of this code? """
+# What is the output of this code?
 
 def func(x):
   res = 0
@@ -560,3 +560,338 @@ def func(x):
   return res
 
 print(func(4))
+
+
+""""Exceptions: You have already seen exceptions in previous code. They occur when something goes wrong,
+due to incorrect code or input. When an exception occurs, the program immediately stops.
+The following code produces the ZeroDivisionError exception by trying to divide 7 by 0."""
+
+num1 = 7
+num2 = 0
+print(num1/num2)
+
+''''Exceptions:Different exceptions are raised for different reasons.
+Common exceptions:
+ImportError: an import fails;
+IndexError: a list is indexed with an out-of-range number;
+NameError: an unknown variable is used;
+SyntaxError: the code can't be parsed properly;
+TypeError: a function is called on a value of an inappropriate type;
+ValueError: a function is called on a value of the correct type, but with an inappropriate value.
+Python has several other built-in exceptions, such as ZeroDivisionError and OSError.
+Third-party libraries also often define their own exceptions.'''
+
+'''''Exception Handling:To handle exceptions, and to call code when an exception occurs,
+you can use a try/except statement.
+The try block contains code that might throw an exception. If that exception occurs,
+the code in the try block stops being executed, and the code in the except block is run.
+If no error occurs, the code in the except block doesn't run.'''
+For example:
+
+try:
+   num1 = 7
+   num2 = 0
+   print (num1 / num2)
+   print("Done calculation")
+except ZeroDivisionError:
+   print("An error occurred")
+   print("due to zero division")
+
+#What is the output of this code
+
+try:
+  variable = 10
+  print (10 / 2)
+except ZeroDivisionError:
+  print("Error")
+print("Finished")
+
+""""Exception Handling : A try statement can have multiple different except blocks to handle different exceptions.
+Multiple exceptions can also be put into a single except block using parentheses,
+to have the except block handle all of them."""
+
+try:
+   variable = 10
+   print(variable + "hello")
+   print(variable / 2)
+except ZeroDivisionError:
+   print("Divided by zero")
+except (ValueError, TypeError):
+   print("Error occurred")
+
+#What is the output of this code?
+try:
+  meaning = 42
+  print(meaning / 0)
+  print("the meaning of life")
+except (ValueError, TypeError):
+  print("ValueError or TypeError occurred")
+except ZeroDivisionError:
+  print("Divided by zero")
+
+''''Exception Handling:An except statement without any exception specified will catch
+all errors. These should be used sparingly, as they can catch unexpected errors
+and hide programming mistakes.'''
+For example:
+
+try:
+   word = "spam"
+   print(word / 0)
+except:
+   print("An error occurred")
+
+-------
+try:
+  num1 = input(":")
+  num2 = input(":")
+  print(float(num1)/float(num2))
+ except:
+  print("Invalid input")
+
+''''finally To ensure some code runs no matter what errors occur, you can use a finally statement.
+The finally statement is placed at the bottom of a try/except statement.
+Code within a finally statement always runs after execution of the code in the try,
+and possibly in the except, blocks.'''
+
+try:
+   print("Hello")
+   print(1 / 0)
+except ZeroDivisionError:
+   print("Divided by zero")
+finally:
+   print("This code will run no matter what")
+
+#What is the output of this code?
+try:
+  print(1)
+except:
+  print(2)
+finally:
+  print(3)
+
+  Ans: 1 3
+
+'''''finally:Code in a finally statement even runs if an uncaught exception occurs
+in one of the preceding blocks.'''
+
+try:
+   print(1)
+   print(10 / 0)
+except ZeroDivisionError:
+   print(unknown_var)
+finally:
+   print("This is executed last")
+
+''''Raising Exceptions:You can raise exceptions by using the raise statement.'''
+print(1)
+raise ValueError
+print(2)
+
+#Which errors occur during the execution of this code?
+try:
+  print(1 / 0)
+except ZeroDivisionError:
+  raise ValueError
+
+''''Raising Exceptions:Exceptions can be raised with arguments that give detail about them.'''
+For example:
+name = "123"
+raise NameError("Invalid name!")
+
+''''Assertions:An assertion is a sanity-check that you can turn on or turn off
+when you have finished testing the program.
+An expression is tested, and if the result comes up false, an exception is raised.
+Assertions are carried out through use of the assert statement.'''
+print(1)
+assert 2 + 2 == 4
+print(2)
+assert 1 + 1 == 3
+print(3)
+
+''''Assertions:The assert can take a second argument that is passed to the AssertionError raised if the assertion fails.'''
+temp = -10
+assert (temp >= 0), "Colder than absolute zero!"
+
+Opening Files
+
+''''You can use Python to read and write the contents of files.
+Text files are the easiest to manipulate. Before a file can be edited,
+it must be opened, using the open function.'''
+
+myfile = open("filename.txt")
+
+''''Opening Files
+You can specify the mode used to open a file by applying a second argument to the open function.
+Sending "r" means open in read mode, which is the default.
+Sending "w" means write mode, for rewriting the contents of a file.
+Sending "a" means append mode, for adding new content to the end of the file.
+
+Adding "b" to a mode opens it in binary mode, which is used for non-text files (such as image and sound files).'''
+For example:
+# write mode
+open("filename.txt", "w")
+
+# read mode
+open("filename.txt", "r")
+open("filename.txt")
+
+# binary write mode
+open("filename.txt", "wb")
+
+''''You can use the + sign with each of the modes above to give them extra access to
+files. For example, r+ opens the file for both reading and writing.'''
+
+''''Once a file has been opened and used, you should close it.
+This is done with the close method of the file object.'''
+file = open("filename.txt", "w")
+# do stuff to the file
+file.close()
+
+''''We will read/write content to files in the upcoming lessons.'''
+
+''''Reading Files:The contents of a file that has been opened in text mode can be read using the read method.'''
+#This will print all of the contents of the file "filename.txt".
+file = open("filename.txt", "r")
+cont = file.read()
+print(cont)
+file.close()
+
+''''To read only a certain amount of a file, you can provide a number as an argument
+to the read function. This determines the number of bytes that should be read.
+You can make more calls to read on the same file object to read more of the file byte by byte.
+With no argument, read returns the rest of the file.'''
+
+file = open("filename.txt", "r")
+print(file.read(16))
+print(file.read(4))
+print(file.read(4))
+print(file.read())
+file.close()
+
+''''Just like passing no arguments, negative values will return the entire contents.'''
+
+''''Reading Files:After all contents in a file have been read, any attempts to read
+further from that file will return an empty string, because you are trying to read
+from the end of the file.'''
+
+file = open("filename.txt", "r")
+file.read()
+print("Re-reading")
+print(file.read())
+print("Finished")
+file.close()
+
+''''Reading Files:To retrieve each line in a file, you can use the readlines
+method to return a list in which each element is a line in the file.'''
+#For example:
+file = open("filename.txt", "r")
+print(file.readlines())
+file.close()
+
+''''
+
+You can also use a for loop to iterate through the lines in the file:'''
+file = open("filename.txt", "r")
+
+for line in file:
+    print(line)
+
+file.close()
+
+'''''In the output, the lines are separated by blank lines,
+as the print function automatically adds a new line at the end of its output.'''
+
+'''Writing Files:To write to files you use the write method, which writes a string to the file.'''
+#For example:
+file = open("newfile.txt", "w")
+file.write("This has been written to a file")
+file.close()
+
+file = open("newfile.txt", "r")
+print(file.read())
+file.close()
+
+#The "w" mode will create a file, if it does not already exist.
+''''Writing Files: When a file is opened in write mode, the file's existing content is deleted.'''
+
+file = open("newfile.txt", "r")
+print("Reading initial contents")
+print(file.read())
+print("Finished")
+file.close()
+
+file = open("newfile.txt", "w")
+file.write("Some new text")
+file.close()
+
+file = open("newfile.txt", "r")
+print("Reading new contents")
+print(file.read())
+print("Finished")
+file.close()
+
+''''Writing Files: The write method returns the number of bytes written to a file,
+if successful.'''
+msg = "Hello world!"
+file = open("newfile.txt", "w")
+amount_written = file.write(msg)
+print(amount_written)
+file.close()
+
+''''Working with Files:It is good practice to avoid wasting resources by making sure
+that files are always closed after they have been used. One way of doing this is to use try and finally.'''
+try:
+   f = open("filename.txt")
+   print(f.read())
+finally:
+   f.close()
+
+''''Working with Files:An alternative way of doing this is using with statements. This creates a temporary
+variable (often called f), which is only accessible in the indented block of the with statement.'''
+
+with open("filename.txt") as f:
+   print(f.read())
+
+''''The file is automatically closed at the end of the with statement, even if exceptions
+occur within it.'''
+
+''''None : The None object is used to represent the absence of a value.
+It is similar to null in other programming languages.
+Like other "empty" values, such as 0, [] and the empty string, it is False when converted to a Boolean variable.
+When entered at the Python console, it is displayed as the empty string.'''
+
+'''The None object is returned by any function that doesn't explicitly return anything else.'''
+
+def some_func():
+  print("Hi!")
+
+var = some_func()
+print(var)
+
+'''' Dictionaries:Dictionaries are data structures used to map arbitrary keys to values.
+Lists can be thought of as dictionaries with integer keys within a certain range.
+Dictionaries can be indexed in the same way as lists, using square brackets containing keys.'''
+#Example:
+ages = {"Dave": 24, "Mary": 42, "John": 58}
+print(ages["Dave"])
+print(ages["Mary"])
+
+''''Trying to index a key that isn't part of the dictionary returns a KeyError.'''
+#Example:
+primary = {
+  "red": [255, 0, 0],
+  "green": [0, 255, 0],
+  "blue": [0, 0, 255],
+}
+
+print(primary["red"])
+print(primary["yellow"])
+
+''''Dictionaries:Only immutable objects can be used as keys to dictionaries.
+Immutable objects are those that can't be changed. So far, the only mutable objects
+you've come across are lists and dictionaries.
+Trying to use a mutable object as a dictionary key causes a TypeError.'''
+
+bad_dict = {
+  [1, 2, 3]: "one two three",
+}
