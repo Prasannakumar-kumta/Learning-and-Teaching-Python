@@ -1,1 +1,1 @@
-This has been written to a file
+Hello world!
