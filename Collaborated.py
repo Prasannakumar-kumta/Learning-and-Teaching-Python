@@ -895,3 +895,647 @@ Trying to use a mutable object as a dictionary key causes a TypeError.'''
 bad_dict = {
   [1, 2, 3]: "one two three",
 }
+
+''''Dictionaries:To determine whether a key is in a dictionary,
+you can use 'in' and 'not in', just as you can for a list.'''
+#Example:
+
+nums = {
+  1: "one",
+  2: "two",
+  3: "three",
+}
+print(1 in nums)
+print("three" in nums)
+print(4 not in nums)
+
+''''Dictionaries:A useful dictionary method is get. It does the same thing as indexing,
+ but if the key is not found in the dictionary it returns another specified value instead ('None', by default).'''
+#Example:
+pairs = {1: "apple",
+  "orange": [2, 3, 4],
+  True: False,
+  None: "True",
+}
+
+print(pairs.get("orange"))
+print(pairs.get(7))
+print(pairs.get(12345, "not in dictionary"))
+
+#What is the result of this code?
+fib = {1: 1, 2: 1, 3: 2, 4: 3}
+print(fib.get(4, 0) + fib.get(7, 5))
+#Ans:8
+
+''''Tuples:Tuples are very similar to lists, except that they are immutable (they cannot be changed).
+Also, they are created using parentheses, rather than square brackets.'''
+#Example:
+
+words = ("spam", "eggs", "sausages",)
+
+#You can access the values in the tuple with their index, just as you did with lists:
+print(words[0])
+
+#Trying to reassign a value in a tuple causes a TypeError.
+words[1] = "cheese"
+
+#Like lists and dictionaries, tuples can be nested within each other.
+
+'''Tuples:Tuples can be created without the parentheses,
+by just separating the values with commas.'''
+#Example:
+my_tuple = "one", "two", "three"
+print(my_tuple[0])
+
+#An empty tuple is created using an empty parenthesis pair.
+tpl = ()
+
+#Tuples are faster than lists, but they cannot be changed.
+
+''''List Slices:List slices provide a more advanced way of retrieving values from a list.
+Basic list slicing involves indexing a list with two colon-separated integers.
+This returns a new list containing all the values in the old list between the indices.'''
+#Example:
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[2:6])
+print(squares[3:8])
+print(squares[0:1])
+Try It Yourself
+
+''''Like the arguments to range, the first index provided
+in a slice is included in the result, but the second isn't.'''
+
+'''List Slices:If the first number in a slice is omitted,
+it is taken to be the start of the list.
+If the second number is omitted, it is taken to be the end.'''
+#Example:
+
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[:7])
+print(squares[7:])
+
+#Slicing can also be done on tuples.
+
+''''List slices can also have a third number, representing the step, to include only
+alternate values in the slice.'''
+
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[::2])
+print(squares[2:8:3])
+
+''''[2:8:3] will include elements starting from the 2nd index up to the 8th with a
+step of 3.'''
+
+''''Negative values can be used in list slicing (and normal list indexing).
+When negative values are used for the first and second values in a slice
+(or a normal index), they count from the end of the list.''''
+
+squares = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+print(squares[1:-1])
+
+''''If a negative value is used for the step, the slice is done backwards.
+Using [::-1] as a slice is a common and idiomatic way to reverse a list.'''
+
+''''List comprehensions are a useful way of quickly creating lists whose contents
+obey a simple rule.'''
+# a list comprehension
+cubes = [i**3 for i in range(5)]
+print(cubes)
+
+#List comprehensions are inspired by set-builder notation in mathematics.
+
+''''A list comprehension can also contain an if statement to
+enforce a condition on values in the list.'''
+#Example:
+evens=[i**2 for i in range(10) if i**2 % 2 == 0]
+print(evens)
+
+''''Trying to create a list in a very extensive range will result in a MemoryError.
+This code shows an example where the list comprehension runs out of memory.'''
+
+even = [2*i for i in range(10**100)]
+
+#This issue is solved by generators.
+
+'''String Formatting:So far, to combine strings and non-strings, you've converted the non-strings to
+strings and added them.
+String formatting provides a more powerful way to embed non-strings within strings.
+String formatting uses a string's format method to substitute a number of arguments in the string.'''
+
+# string formatting
+nums = [4, 5, 6]
+msg = "Numbers: {0} {1} {2}". format(nums[0], nums[1], nums[2])
+print(msg)
+
+''''Each argument of the format function is placed in the string at
+the corresponding position, which is determined using the curly braces { }.'''
+
+''''String formatting can also be done with named arguments.'''
+#Example:
+a = "{x}, {y}".format(x=5, y=12)
+print(a)
+
+'''''String Functions: Python contains many useful built-in functions and methods to
+accomplish common tasks.'''
+
+join - joins a list of strings with another string as a separator.
+replace - replaces one substring in a string with another.
+startswith and endswith - determine if there is a substring at the start and end of a string, respectively.
+To change the case of a string, you can use lower and upper.
+The method split is the opposite of join, turning a string with a certain separator into a list.
+
+#Some examples:
+print(", ".join(["spam", "eggs", "ham"]))
+#prints "spam, eggs, ham"
+
+print("Hello ME".replace("ME", "world"))
+#prints "Hello world"
+
+print("This is a sentence.".startswith("This"))
+# prints "True"
+
+print("This is a sentence.".endswith("sentence."))
+# prints "True"
+
+print("This is a sentence.".upper())
+# prints "THIS IS A SENTENCE."
+
+print("AN ALL CAPS SENTENCE".lower())
+#prints "an all caps sentence"
+
+print("spam, eggs, ham".split(", "))
+#prints "['spam', 'eggs', 'ham']"
+
+''''Numeric Functions:To find the maximum or minimum of some numbers or a list, you can use max or min.
+To find the distance of a number from zero (its absolute value), use abs.
+To round a number to a certain number of decimal places, use round.
+To find the total of a list, use sum.'''
+#Some examples:
+print(min(1, 2, 3, 4, 0, 2, 1))
+print(max([1, 4, 9, 2, 5, 6, 8]))
+print(abs(-99))
+print(abs(42))
+print(sum([1, 2, 3, 4, 5]))
+
+'''''Often used in conditional statements, all and any take a list as an argument,
+and return True if all or any (respectively) of their arguments evaluate to
+True (and False otherwise).
+The function enumerate can be used to iterate through the values and indices of
+a list simultaneously.'''
+#Example:
+nums = [55, 44, 33, 22, 11]
+
+if all([i > 5 for i in nums]):
+   print("All larger than 5")
+
+if any([i % 2 == 0 for i in nums]):
+   print("At least one is even")
+
+for v in enumerate(nums):
+   print(v)
+
+''''Text Analyzer:This is an example project, showing a program that analyzes
+a sample file to find what percentage of the text each character occupies.
+This section shows how a file could be open and read.'''
+
+filename = input("Enter a filename: ")
+
+with open(filename) as f:
+   text = f.read()
+
+print(text)
+
+'''''Text Analyzer:This part of the program shows a function that counts
+how many times a character occurs in a string.'''
+
+def count_char(text, char):
+  count = 0
+  for c in text:
+    if c == char:
+      count += 1
+  return count
+
+''''This function takes as its arguments the text of the file and one character,
+returning the number of times that character appears in the text.
+Now we can call it for our file.'''
+
+filename = input("Personal_Assistant.py")
+with open(filename) as f:
+  text = f.read()
+
+print(count_char(text, "r"))
+
+#The character "r" appears 83 times in the file.
+
+''''Text Analyzer:The next part of the program finds what percentage of
+the text each character of the alphabet occupies.'''
+
+for char in "abcdefghijklmnopqrstuvwxyz":
+  perc = 100 * count_char(text, char) / len(text)
+  print("{0} - {1}%".format(char, round(perc, 2)))
+
+#Let's put it all together and run the program:
+
+def count_char(text, char):
+  count = 0
+  for c in text:
+    if c == char:
+      count += 1
+  return count
+
+filename = input("Enter a filename: ")
+with open(filename) as f:
+  text = f.read()
+
+for char in "abcdefghijklmnopqrstuvwxyz":
+  perc = 100 * count_char(text, char) / len(text)
+  print("{0} - {1}%".format(char, round(perc, 2)))
+
+''''Functional Programming: Functional programming is a style of programming that
+(as the name suggests) is based around functions.'''
+''''A key part of functional programming is higher-order functions. We have seen
+this idea briefly in the previous lesson on functions as objects. Higher-order
+functions take other functions as arguments, or return them as results.'''
+#Example:
+def apply_twice(func, arg):
+   return func(func(arg))
+
+def add_five(x):
+   return x + 5
+
+print(apply_twice(add_five, 10))
+
+''''The function apply_twice takes another function as its argument,
+and calls it twice inside its body.'''
+
+''''Pure Functions:Functional programming seeks to use pure functions.
+Pure functions have no side effects, and return a value that depends only on their arguments.
+This is how functions in math work: for example, The cos(x) will,
+for the same value of x, always return the same result.'''
+#Below are examples of pure and impure functions.
+
+def pure_function(x, y):
+  temp = x + 2*y
+  return temp / (2*x + y)
+
+Impure function:
+some_list = []
+
+def impure(arg):
+  some_list.append(arg)
+impure(4)
+print(list)
+
+'''The function above is not pure, because it changed the state of some_list.'''
+
+''''Pure Functions:Using pure functions has both advantages and disadvantages.
+Pure functions are:
+- easier to reason about and test.
+- more efficient. Once the function has been evaluated for an input, the result
+can be stored and referred to the next time the function of that input is
+needed, reducing the number of times the function is called. This is called memoization.
+- easier to run in parallel.
+The main disadvantage of using only pure functions is that they majorly
+complicate the otherwise simple task of I/O, since this appears to inherently
+require side effects.
+They can also be more difficult to write in some situations.'''
+
+''''Lambdas:Creating a function normally (using def) assigns it to a variable automatically.
+This is different from the creation of other objects - such as strings and
+integers - which can be created on the fly, without assigning them to a variable.
+The same is possible with functions, provided that they are created using lambda syntax.
+Functions created this way are known as anonymous.
+This approach is most commonly used when passing a simple function as an argument
+to another function. The syntax is shown in the next example and consists of the lambda keyword
+followed by a list of arguments, a colon, and the expression to evaluate and return.'''
+
+def my_func(f, arg):
+  return f(arg)
+
+my_func(lambda x: 2*x*x, 5)
+
+''''Lambda functions get their name from lambda calculus, which is a model of computation
+invented by Alonzo Church.'''
+
+''''Lambdas:Lambda functions aren't as powerful as named functions.
+They can only do things that require a single expression - usually
+equivalent to a single line of code.'''
+#Example:
+#named function
+def polynomial(x):
+    return x**2 + 5*x + 4
+print(polynomial(-4))
+
+#lambda
+print((lambda x: x**2 + 5*x + 4) (-4))
+
+#In the code above, we created an anonymous function on the fly and called
+# with an argument.
+
+''''Lambdas:Lambda functions can be assigned to variables,
+and used like normal functions.'''
+#Example:
+double = lambda x: x * 2
+print(double(7))
+
+#However, there is rarely a good reason to do this - it is usually
+#better to define a function with def instead.
+
+''''map: The built-in functions map and filter are very useful higher-order
+functions that operate on lists (or similar objects called iterables).
+The function map takes a function and an iterable as arguments, and returns
+a new iterable with the function applied to each argument.'''
+#Example:
+def add_five(x):
+  return x + 5
+
+nums = [11, 22, 33, 44, 55]
+result = list(map(add_five, nums))
+print(result)
+
+#We could have achieved the same result more easily by using lambda syntax.
+nums = [11, 22, 33, 44, 55]
+
+result = list(map(lambda x: x+5, nums))
+print(result)
+
+#To convert the result into a list, we used list explicitly.
+
+''''filter:The function filter filters an iterable by removing items
+that don't match a predicate (a function that returns a Boolean).'''
+#Example:
+nums = [11, 22, 33, 44, 55]
+res = list(filter(lambda x: x%2==0, nums))
+print(res)
+
+''''Like map, the result has to be explicitly converted to
+a list if you want to print it.'''
+
+'''Generators: Generators are a type of iterable, like lists or tuples.
+Unlike lists, they don't allow indexing with arbitrary indices, but they can
+still be iterated through with for loops.
+They can be created using functions and the yield statement.'''
+#Example:
+def countdown():
+  i=5
+  while i > 0:
+    yield i
+    i -= 1
+
+for i in countdown():
+  print(i)
+
+  ''''Generators: Due to the fact that they yield one item at a time, generators don't have
+  the memory restrictions of lists.
+  In fact, they can be infinite!'''
+
+  def infinite_sevens():
+    while True:
+      yield 7
+
+  for i in infinite_sevens():
+    print(i)
+
+''''In short, generators allow you to declare a function that behaves like an iterator,
+  i.e. it can be used in a for loop.'''
+
+''''Generators: Finite generators can be converted into lists by passing them
+as arguments to the list function.'''
+def numbers(x):
+  for i in range(x):
+    if i % 2 == 0:
+      yield i
+
+print(list(numbers(11)))
+
+''''Using generators results in improved performance, which is the result of the lazy
+(on demand) generation of values, which translates to lower memory usage.
+Furthermore, we do not need to wait until all the elements have been generated
+before we start to use them.'''
+
+#What is the result of this code?
+def make_word():
+  word = ""
+  for ch in "spam":
+    word +=ch
+    yield word
+
+print(list(make_word()))
+
+''''Decorators: Decorators provide a way to modify functions using other functions.
+This is ideal when you need to extend the functionality of functions that you
+don't want to modify.'''
+#Example:
+def decor(func):
+  def wrap():
+    print("============")
+    func()
+    print("============")
+  return wrap
+
+def print_text():
+  print("Hello world!")
+
+decorated = decor(print_text)
+decorated()
+
+''''We defined a function named decor that has a single parameter func. Inside decor,
+we defined a nested function named wrap. The wrap function will print a string,
+then call func(), and print another string. The decor function returns the wrap
+function as its result.
+We could say that the variable decorated is a decorated version of print_text - it's
+print_text plus something.
+In fact, if we wrote a useful decorator we might want to replace print_text with
+the decorated version altogether so we always got our "plus something" version of print_text.
+This is done by re-assigning the variable that contains our function:'''
+
+print_text = decor(print_text)
+print_text()
+
+#Now print_text corresponds to our decorated version.
+''''Decorators: In our previous example, we decorated our function by replacing
+the variable containing the function with a wrapped version.'''
+
+def print_text():
+  print("Hello world!")
+
+print_text = decor(print_text)
+
+''''This pattern can be used at any time, to wrap any function.
+Python provides support to wrap a function in a decorator by pre-pending the function definition with a decorator name and the @ symbol.
+If we are defining a function we can "decorate" it with the @ symbol like:'''
+
+@decor
+def print_text():
+  print("Hello world!")
+
+
+#This will have the same result as the above code.
+
+#A single function can have multiple decorators.
+
+''''Recursion is a very important concept in functional programming.
+The fundamental part of recursion is self-reference - functions calling themselves.
+It is used to solve problems that can be broken up into easier sub-problems of the same type.
+
+A classic example of a function that is implemented recursively is the factorial
+function, which finds the product of all positive integers below a specified number.
+For example, 5! (5 factorial) is 5 * 4 * 3 * 2 * 1 (120). To implement this
+recursively, notice that 5! = 5 * 4!, 4! = 4 * 3!, 3! = 3 * 2!, and so on.
+Generally, n! = n * (n-1)!.
+Furthermore, 1! = 1.
+This is known as the base case, as it can be calculated without performing
+any more factorials.
+Below is a recursive implementation of the factorial function.'''
+
+def factorial(x):
+  if x == 1:
+    return 1
+  else:
+    return x * factorial(x-1)
+
+print(factorial(5))
+
+#The base case acts as the exit condition of the recursion.
+
+''''Recursive functions can be infinite, just like infinite while loops.
+These often occur when you forget to implement the base case.
+Below is an incorrect version of the factorial function.
+It has no base case, so it runs until the interpreter runs out of
+memory and crashes.'''
+
+def factorial(x):
+  return x * factorial(x-1)
+
+print(factorial(5))
+
+#What is the result of this code?
+def sum_to(x):
+   return x + sum_to(x-1)
+print (sum_to(5))
+
+''''Recursion can also be indirect.
+One function can call a second, which calls the first, which calls the second,
+and so on. This can occur with any number of functions.'''
+#Example:
+def is_even(x):
+  if x == 0:
+    return True
+  else:
+    return is_odd(x-1)
+
+def is_odd(x):
+  return not is_even(x)
+
+print(is_odd(17))
+print(is_even(23))
+
+''''Sets are data structures, similar to lists or dictionaries.
+They are created using curly braces, or the set function. They share some functionality with lists, such as the use of in to check whether they contain a particular item.
+num_set = {1, 2, 3, 4, 5}'''
+
+word_set = set(["spam", "eggs", "sausage"])
+
+print(3 in num_set)
+print("spam" not in word_set)
+
+#To create an empty set, you must use set(), as {} creates an empty dictionary.
+''''Sets: Sets differ from lists in several ways, but share several list operations such as len.
+They are unordered, which means that they can't be indexed.
+They cannot contain duplicate elements.
+Due to the way they're stored, it's faster to check whether an item is part of a set,
+rather than part of a list.
+Instead of using append to add to a set, use add.
+The method remove removes a specific element from a set; pop removes an arbitrary element.'''
+
+nums = {1, 2, 1, 3, 1, 4, 5, 6}
+print(nums)
+nums.add(-7)
+nums.remove(3)
+print(nums)
+
+''''Basic uses of sets include membership testing and the elimination of duplicate entries.'''
+
+''''Sets can be combined using mathematical operations.
+The union operator | combines two sets to form a new one containing items in either.
+The intersection operator & gets items only in both.
+The difference operator - gets items in the first set but not in the second.
+The symmetric difference operator ^ gets items in either set, but not both.'''
+
+first = {1, 2, 3, 4, 5, 6}
+second = {4, 5, 6, 7, 8, 9}
+
+print(first | second)
+print(first & second)
+print(first - second)
+print(second - first)
+print(first ^ second)
+
+''''Data Structures: As we have seen in the previous lessons,
+Python supports the following data structures:
+lists, dictionaries, tuples, sets.
+
+When to use a dictionary:
+- When you need a logical association between a key:value pair.
+- When you need fast lookup for your data, based on a custom key.
+- When your data is being constantly modified.
+    Remember, dictionaries are mutable.
+
+When to use the other types:
+- Use lists if you have a collection of data that does not need random access.
+Try to choose lists when you need a simple, iterable collection that is modified
+frequently.
+- Use a set if you need uniqueness for the elements.
+- Use tuples when your data cannot change.
+Many times, a tuple is used in combination with a dictionary, for example,
+a tuple might represent a key, because it's immutable.'''
+
+''''itertools: The module itertools is a standard library that contains several
+functions that are useful in functional programming.
+One type of function it produces is infinite iterators.
+The function count counts up infinitely from a value.
+The function cycle infinitely iterates through an iterable (for instance a list or string).
+The function repeat repeats an object, either infinitely or a specific number of times.'''
+#Example:
+from itertools import count
+
+for i in count():
+  print(i)
+  if i >=11:
+    break
+
+''''There are many functions in itertools that operate on iterables,
+in a similar way to map and filter.
+#Some examples:
+takewhile - takes items from an iterable while a predicate function remains true;
+chain - combines several iterables into one long one;
+accumulate - returns a running total of values in an iterable.'''
+
+from itertools import accumulate, takewhile
+nums = list(accumulate(range(8)))
+print(nums)
+print(list(takewhile(lambda x: x<= 6, nums)))
+
+''''There are also several combinatoric functions in itertool,
+such as product and permutation.
+These are used when you want to accomplish a task with all possible combinations
+of some items.'''
+#Example:
+
+from itertools import product, permutations
+
+letters = ("A", "B")
+print(list(product(letters, range(2))))
+print(list(permutations(letters)))
+
+''''There are also several combinatoric functions in itertool,
+such as product and permutation.
+These are used when you want to accomplish a task with
+all possible combinations of some items.'''
+#Example:
+
+from itertools import product, permutations
+
+letters = ("A", "B")
+print(list(product(letters, range(2))))
+print(list(permutations(letters)))
