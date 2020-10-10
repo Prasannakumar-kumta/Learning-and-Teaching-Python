@@ -1,4 +1,4 @@
-'''''#A Simple Game
+#A Simple Game
 '''Object orientation is very useful when managing different objects and their
 relations. That is especially useful when you are developing games with
 different characters and features.
@@ -37,7 +37,7 @@ while True:
  If a match is found, the corresponding function is called.'''
 
 ----------------------------------------------------------------
-'''''
+
 '''The next step is to use classes to represent game objects.'''
 class GameObject:
   class_name = ""
