@@ -1,1 +1,2 @@
-print ("\n".join(['I', 'would', 'expect', 'multiple', 'lines']))
+x=7/3
+print(x)

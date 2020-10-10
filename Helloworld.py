@@ -1,18 +1,34 @@
 
-import random
 
-class VagueList:
-  def __init__(self, cont):
-    self.cont = cont
+'''The next step is to use classes to represent game objects.'''
+class GameObject:
+  class_name = ""
+  desc = ""
+  objects = {}
 
-  def __getitem__(self, index):
-    return self.cont[index + random.randint(-1, 1)]
+  def __init__(self, name):
+    self.name = name
+    GameObject.objects[self.class_name] = self
 
-  def __len__(self):
-    return random.randint(0, len(self.cont)*2)
+  def get_desc(self):
+    return self.class_name + "\n" + self.desc
 
-vague_list = VagueList(["A", "B", "C", "D", "E"])
-print(len(vague_list))
-print(len(vague_list))
-print(vague_list[2])
-print(vague_list[2])
+class Goblin(GameObject):
+  class_name = "goblin"
+  desc = "A foul creature"
+
+goblin = Goblin("Gobbly")
+
+def examine(noun):
+  if noun in GameObject.objects:
+    return GameObject.objects[noun].get_desc()
+  else:
+    return "There is no {} here.".format(noun)
+
+def say(noun):
+  return 'You said "{}"'.format(noun)
+  
+verb_dict = {
+  "say": say,
+  "examine": examine,
+}
