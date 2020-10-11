@@ -1,34 +1,15 @@
+import re
 
+pattern = r"gr(a|e)y"
 
-'''The next step is to use classes to represent game objects.'''
-class GameObject:
-  class_name = ""
-  desc = ""
-  objects = {}
+match = re.match(pattern, "gray")
+if match:
+   print ("Match 1")
 
-  def __init__(self, name):
-    self.name = name
-    GameObject.objects[self.class_name] = self
+match = re.match(pattern, "grey")
+if match:
+   print ("Match 2")
 
-  def get_desc(self):
-    return self.class_name + "\n" + self.desc
-
-class Goblin(GameObject):
-  class_name = "goblin"
-  desc = "A foul creature"
-
-goblin = Goblin("Gobbly")
-
-def examine(noun):
-  if noun in GameObject.objects:
-    return GameObject.objects[noun].get_desc()
-  else:
-    return "There is no {} here.".format(noun)
-
-def say(noun):
-  return 'You said "{}"'.format(noun)
-  
-verb_dict = {
-  "say": say,
-  "examine": examine,
-}
+match = re.match(pattern, "griy")
+if match:
+    print ("Match 3")
