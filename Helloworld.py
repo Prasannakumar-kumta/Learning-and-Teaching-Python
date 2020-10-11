@@ -1,18 +1,15 @@
+import re
 
-import random
+pattern = r"gr(a|e)y"
 
-class VagueList:
-  def __init__(self, cont):
-    self.cont = cont
+match = re.match(pattern, "gray")
+if match:
+   print ("Match 1")
 
-  def __getitem__(self, index):
-    return self.cont[index + random.randint(-1, 1)]
+match = re.match(pattern, "grey")
+if match:
+   print ("Match 2")
 
-  def __len__(self):
-    return random.randint(0, len(self.cont)*2)
-
-vague_list = VagueList(["A", "B", "C", "D", "E"])
-print(len(vague_list))
-print(len(vague_list))
-print(vague_list[2])
-print(vague_list[2])
+match = re.match(pattern, "griy")
+if match:
+    print ("Match 3")
